@@ -1,8 +1,8 @@
 <?php
-$host = "YOUR_RDS_ENDPOINT";
+$host = "database-1.ccneo2ee69pt.us-east-1.rds.amazonaws.com";
 $user = "admin";
-$pass = "password";
-$db = "testdb";
+$pass = "Vishwash";
+$db = "myapp";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
