@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("database-1.ccneo2ee69pt.us-east-1.rds.amazonaws.com", "admin", "YOUR_PASSWORD", "phpdb");
+$conn = new mysqli("database-1.ccneo2ee69pt.us-east-1.rds.amazonaws.com", "admin", "Vishwash", "phpdb");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
