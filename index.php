@@ -1,28 +1,23 @@
 <?php
-$host = "database-1.ccneo2ee69pt.us-east-1.rds.amazonaws.com";
-$user = "admin";
-$pass = "Vishwash";
-$db = "myapp";
-
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli("database-1.ccneo2ee69pt.us-east-1.rds.amazonaws.com", "admin", "YOUR_PASSWORD", "phpdb");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['name'])) {
     $name = $_POST['name'];
     $conn->query("INSERT INTO users (name) VALUES ('$name')");
 }
 
 $result = $conn->query("SELECT * FROM users");
+
+echo "<form method='POST'>
+        <input type='text' name='name' />
+        <input type='submit' />
+      </form>";
+
+while ($row = $result->fetch_assoc()) {
+    echo $row['name'] . "<br>";
+}
 ?>
-
-<form method="POST">
-    Name: <input type="text" name="name">
-    <button type="submit">Submit</button>
-</form>
-
-<?php while($row = $result->fetch_assoc()) { ?>
-    <p><?php echo $row['name']; ?></p>
-<?php } ?>
